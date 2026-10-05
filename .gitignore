@@ -38,6 +38,6 @@ ehthumbs.db
 *.userosscache
 *.sln.docstates
 
-## Environment variables (if you use them)
+## Environment variables
 .env
 .env.development
