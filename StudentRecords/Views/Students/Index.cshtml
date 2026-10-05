@@ -1,0 +1,48 @@
+@model IEnumerable<StudentRecords.Models.Student>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+
+<h1>Students</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>No students yet. Create the first record.</p>
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.Course)</th>
+            <th>@Html.DisplayNameFor(model => model.Grade)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+@foreach (var student in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => student.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => student.LastName)</td>
+                <td>@Html.DisplayFor(modelItem => student.Course)</td>
+                <td>@Html.DisplayFor(modelItem => student.Grade)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@student.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@student.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@student.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
